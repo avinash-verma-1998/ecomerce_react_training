@@ -1,0 +1,22 @@
+// import { useState } from "react";
+import { useCart } from "../cartContext";
+import { calculateCartState, toItemsArray } from "../utils";
+
+const CartStateBadge = () => {
+  const { cart } = useCart();
+  const { total, no_of_items } = calculateCartState(toItemsArray(cart));
+  return (
+    <div className="cart-badge">
+      <span className="badge">
+        {no_of_items}{"     "}
+      </span>
+      <span className="total">${total}.00</span>
+    </div>
+  );
+};
+
+export default CartStateBadge;
+
+
+
+
